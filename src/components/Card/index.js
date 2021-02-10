@@ -12,7 +12,7 @@ import "./Card.css";
 
 function Card() {
   return (
-    <div className="card px-4 shadow">
+    <div className="card px-4 my-4 shadow">
       <div className="card-body">
         <div className="card___top text-info">
           <div className="date">
