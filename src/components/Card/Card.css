@@ -1,0 +1,50 @@
+.card___top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.card___top div {
+  display: flex;
+  align-items: center;
+}
+.code-icon {
+  font-size: x-large;
+  color: grey;
+}
+.commit-name {
+  color: grey;
+  font-weight: 600;
+}
+
+.card___top div {
+  display: flex;
+  align-items: center;
+}
+.card___bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.card___bottom div {
+  display: flex;
+  align-items: center;
+  font-size: small;
+  color: grey;
+}
+.card___bottom div:nth-child(2) {
+  display: flex;
+  align-items: flex-end;
+  font-size: x-large;
+  cursor: pointer;
+  transition: 150ms;
+  color: grey;
+}
+.card___bottom div:nth-child(2):hover {
+  transform: scale(1.2);
+  color: black;
+}
+.card {
+  border-bottom: 5px solid rgb(20, 100, 190) !important;
+}
