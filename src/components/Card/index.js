@@ -10,43 +10,44 @@ import {
 } from "react-icons/all";
 import "./Card.css";
 
-function Card() {
+function Card({ commit }) {
+  console.log(commit);
   return (
     <div className="card px-4 my-4 shadow">
       <div className="card-body">
         <div className="card___top text-info">
-          <div className="date">
+          <div className="date col-md-2">
             <FaCalendarAlt />
-            &nbsp;20-01-2021
+            &nbsp;{commit.commit.author.date.split("T")[0]}
           </div>
-          <div className="hash">
-            <FaSlackHash /> &nbsp;102121
+          <div className="hash col-md-8 text-center">
+            <a href={commit.html_url} target="_blank">
+              <FaSlackHash /> &nbsp;{commit?.sha}
+            </a>
           </div>
-          <div className="commiter">
-            <FaUserNinja /> &nbsp;Ali
+          <div className="commiter col-md-2">
+            <FaUserNinja /> &nbsp;{commit.author?.login}
           </div>
         </div>
         <div className="my-4">
           <div className="row">
-            <div className="col-md-1">
+            <div className="col-md-12 commit-name">
               <RiCodeSSlashLine className="code-icon" />
+              &nbsp;{commit?.commit?.message}
             </div>
-            <div className="col-md-11 commit-name">Commit name comes here</div>
           </div>
         </div>
         <div className="card___bottom">
           <div className="time">
             <AiOutlineClockCircle />
-            &nbsp;2 days ago
-          </div>
-
-          <div className="more">
-            <MdExpandMore />
+            &nbsp;{commit.commit.author.date.split("T")[1].replace("Z", "")}
           </div>
 
           <div className="files">
-            <AiOutlinePlusSquare />
-            &nbsp; 3 Files
+            <a href={commit?.comments_url} target="_blank">
+              <AiOutlinePlusSquare /> &nbsp; {commit?.commit?.comment_count}{" "}
+              comments
+            </a>
           </div>
         </div>
       </div>
