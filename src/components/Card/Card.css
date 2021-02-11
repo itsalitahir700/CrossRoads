@@ -8,6 +8,16 @@
   display: flex;
   align-items: center;
 }
+.card___top div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.card___top div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 .code-icon {
   font-size: x-large;
   color: grey;
@@ -33,7 +43,7 @@
   font-size: small;
   color: grey;
 }
-.card___bottom div:nth-child(2) {
+/* .card___bottom div:nth-child(2) {
   display: flex;
   align-items: flex-end;
   font-size: x-large;
@@ -44,7 +54,13 @@
 .card___bottom div:nth-child(2):hover {
   transform: scale(1.2);
   color: black;
-}
+} */
 .card {
   border-bottom: 5px solid rgb(20, 100, 190) !important;
+}
+.hash {
+  justify-content: center;
+}
+.files a {
+  text-decoration: none !important;
 }
