@@ -1,5 +1,5 @@
-import {combineReducers} from 'redux';
-import test from './Test';
+import { combineReducers } from "redux";
+import commitState from "./Commit";
 export default combineReducers({
-  test,
+  commitState,
 });

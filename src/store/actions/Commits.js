@@ -7,6 +7,7 @@ export const getCommits = () => async (dispatch) => {
     const resp = await gitCall();
     dispatch({
       type: "COMMIT_SUCCESS",
+      payload: resp.data,
     });
     return resp.data;
   } catch (error) {
