@@ -5,13 +5,11 @@ import {
   FaUserNinja,
   RiCodeSSlashLine,
   AiOutlineClockCircle,
-  MdExpandMore,
   AiOutlinePlusSquare,
 } from "react-icons/all";
 import "./Card.css";
 
 function Card({ commit }) {
-  console.log(commit);
   return (
     <div className="card px-4 my-4 shadow">
       <div className="card-body">

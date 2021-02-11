@@ -3,34 +3,38 @@ import Card from "./components/Card";
 import getCommits from "./store/actions/Commits";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "./components/SearchBar";
+import Loader from "./components/Loader";
 import "./App.css";
 
 function App() {
   const commitStore = useSelector((state) => state.AppState.commitState);
   const [commitData, setCommitData] = useState(commitStore);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    async function fetchCommits() {
-      await dispatch(getCommits());
-    }
-    fetchCommits();
+  useEffect(async () => {
+    setLoading(true);
+    await fetchCommits();
+    setLoading(false);
   }, []);
+
   useEffect(() => {
     setCommitData(commitStore);
   }, [commitStore]);
 
+  const fetchCommits = async () => {
+    await dispatch(getCommits());
+  };
+
   const filterCommits = (hash) => {
-    if (commitData && commitData.length > 0) {
-      const filtered = commitData.filter((commit) => {
-        if (commit.sha.toLowerCase().includes(hash.toLowerCase())) {
-          return commit;
-        }
-      });
-      setCommitData(filtered);
-      if (hash === "") {
-        setCommitData(commitStore);
+    const filtered = commitData.filter((commit) => {
+      if (commit.sha.toLowerCase().includes(hash.toLowerCase())) {
+        return commit;
       }
+    });
+    setCommitData(filtered);
+    if (hash === "") {
+      setCommitData(commitStore);
     }
   };
   return (
@@ -42,6 +46,7 @@ function App() {
             <Card commit={commit} key={index} />
           ))}
       </div>
+      {loading ? <Loader /> : ""}
     </>
   );
 }
